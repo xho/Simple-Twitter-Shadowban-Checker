@@ -5,10 +5,11 @@ Since the method is based on a 3rd party web page scan, it's not 100% reliable.
 And also it should be said that Twitter does not mention shadowbanning users anywhere.
 
 Nonetheless some users do not appear in search results and they're interactions are not notified to other users.
-Many people think this is an obscure practice and should be reported.
+Many people think this is an obscure practice and that it should be reported.
 
-If you don't know what shadowban is, a search engine is all you need.
-If you think this app should have been done better, do it.
+## Recommendations
+* If you don't know what shadowban is, a web browser and a search engine are all you need.
+* If you think this app should have been done better, do it.
 
 
 ## License
