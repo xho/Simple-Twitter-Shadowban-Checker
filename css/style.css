@@ -23,6 +23,7 @@ h1, h2, h3, p { margin: 0; padding: 0; }
 header {
     font-family: 'Lobster', cursive;
     font-size: 1.125em;
+    line-height: 2.5rem;
     text-align: center;
     color: #1da1f2;
 }
@@ -102,12 +103,16 @@ button:active {
     color: #fff;
 }
 
-@media (max-width:960px) {
+@media (max-width:440px) {
     .container, header, footer {
-        max-width: 100%;
         padding-left: 1em;
         padding-right: 1em;
-        margin-left: 1em;
-        margin-right: 1em;
+        margin: 1em auto;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        width: 92%;
+    }
+    .results ul {
+        list-style: none;
     }
 }
