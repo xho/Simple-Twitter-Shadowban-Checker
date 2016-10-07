@@ -115,4 +115,7 @@ button:active {
     .results ul {
         list-style: none;
     }
+    .results li:first-letter {
+        text-transform: uppercase;
+    }
 }
