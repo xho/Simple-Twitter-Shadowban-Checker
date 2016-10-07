@@ -1,4 +1,5 @@
-<?
+<?php
+
 /*
 ** Simpe Twitter Shadowban Checker - php proxy
 ** 2016 @xho
