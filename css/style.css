@@ -1,0 +1,113 @@
+/*
+** Simpe Twitter Shadowban Checker - js
+** 2016 @xho
+*/
+
+* {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+h1, h2, h3, p { margin: 0; padding: 0; }
+
+.container, header, footer {
+    box-sizing: border-box;
+    max-width: 420px;
+    margin: 1em auto;
+}
+header {
+    font-family: 'Lobster', cursive;
+    font-size: 1.125em;
+    text-align: center;
+    color: #1da1f2;
+}
+footer {
+    font-size: .875em;
+    color: #aaa;
+    text-align: center
+}
+footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.container {
+    padding: 2em;
+    color: #fff;
+    background-color: #1da1f2;
+    border-radius: 1em;
+    font-weight: 100;
+}
+
+section.input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.results {
+    display: none;
+    background: none;
+    min-height: 8em;
+    margin-top: 2em;
+    padding-top: 2em;
+    border-top: 1px solid #8fc4de;
+    background: none;
+}
+
+section.results.searching {
+    background: transparent url('../gears.svg') center center no-repeat;
+}
+
+header span.on {
+    color: #c53dc5;
+}
+
+
+input[type=text], button {
+    border: 0;
+    padding: .4em .5em;
+    flex-grow: 1;
+    font-size: 1em;
+    background-color: #fff;
+    border-radius: .25em;
+}
+input[type=text] {
+    margin: 0 1em;
+    min-width: 5em;
+}
+
+button:active {
+    background-color: #333;
+    color: #fff;
+}
+
+.results ul {
+    padding: 0;
+    margin: 0;
+}
+.results li { margin-bottom: 0.5em; }
+
+.results p {
+    margin-top: .75em;
+}
+
+.results a {
+    font-weight: bold;
+    color: #fff;
+}
+
+@media (max-width:960px) {
+    .container, header, footer {
+        max-width: 100%;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
