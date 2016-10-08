@@ -79,7 +79,7 @@ input[type=text], button {
     border-radius: .25em;
 }
 input[type=text] {
-    margin: 0 1em;
+    margin-right: 1em;
     min-width: 5em;
 }
 
