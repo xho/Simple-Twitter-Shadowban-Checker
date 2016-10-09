@@ -11,6 +11,8 @@ Many people think this is an obscure issue and that it should be reported.
 * If you don't know what shadowban is, a web browser and a search engine are all you need.
 * If you think this app should have been done better, do it.
 
+## How does it works
+Apparently shadowbanning is not active in Twitter's public API. For this reason this app crowls and scans directly the search page on Twitter's web site, like a person, to discover if user's tweets are displayed.  To avoid problems wirth CORS a very simple php proxy is used.
 
 ## License
 
@@ -27,4 +29,4 @@ __
 
 Addendum
 
-Except as contained in this notice, the whole appllication and the name of the Christiano Presutti (@xho) shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from the X Consortium.
+Except as contained in this notice, the whole appllication and the name of the Christiano Presutti (@xho) shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from the author.
