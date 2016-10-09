@@ -3,10 +3,9 @@ v. 1.0 beta
 
 This is a simple and quick webapp that crowls Twitter's search page to discover if a particular user has been shadowbanned.
 Since the method is based on a 3rd party web page scan, it's not 100% reliable.
-And also it should be said that Twitter does not mention shadowbanning users anywhere.
 
-Nonetheless some users do not appear in search results and they're interactions are not notified to other users.
-Many people think this is an obscure practice and that it should be reported.
+It should be said also that Twitter does not mention the practice of shadowbanning users anywhere. Nonetheless some users do not appear in search results and they're interactions are not notified to other users.
+Many people think this is an obscure issue and that it should be reported.
 
 ## Recommendations
 * If you don't know what shadowban is, a web browser and a search engine are all you need.
