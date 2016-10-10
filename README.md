@@ -1,4 +1,4 @@
-# Simpe Twitter Shadowban Checker
+# Simple Twitter Shadowban Checker
 v. 1.0 beta
 
 This is a simple and quick webapp that crowls Twitter's search page to discover if a particular user has been shadowbanned.
