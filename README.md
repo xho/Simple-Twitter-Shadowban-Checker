@@ -12,10 +12,9 @@ Many people think this is an obscure issue and that it should be reported.
 * If you think this app should have been done better, do it.
 
 ## How does it work
-Apparently shadowbanning is not active in Twitter's public API. For this reason this app crowls and scans directly the search page on Twitter's web site, like a person, to discover if user's tweets are displayed.  To avoid problems wirth CORS a very simple php proxy is used.
+Apparently shadowbanning is not active in Twitter's public API. For this reason this app crowls and scans directly the search page on Twitter's web site, like a person, to discover if user's tweets are displayed.  To avoid problems with CORS a very simple php proxy is used.
 
 ## License
-
 This application is under MIT license with addendum (see below)
 
 Copyright (C) 2016
