@@ -83,7 +83,7 @@ var TSB = {
             }
 
             if (proof > 1) {
-                pMessage.push('First make sure the user exists, than you may also visit this <a target="_blank" href=\"' + TSB.searchBaseUrl + u + '\">link to a search on Twitter</a>. If you can\'t see any tweet made by @' + u + ', this user is most likely shadowbanned.');
+                pMessage.push('First make sure the user exists, then you may also visit this <a target="_blank" href=\"' + TSB.searchBaseUrl + u + '\">link to a search on Twitter</a>. If you can\'t see any tweet made by @' + u + ', this user is most likely shadowbanned.');
             } else {
                     pMessage.push('Apparently ' + u + ' is <u>not shadowbanned</u>.');
             }
