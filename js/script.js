@@ -20,7 +20,7 @@ var TSB = {
 
         $('button').on('click', function () {
             var u = TSB.getUser();
-            var validTwitterHandle = /^(?:@)?([A-Za-z0-9_])+$/g;
+            var validTwitterHandle = /^(?:@)?([A-Za-z0-9_]){1,15}$/g;
             var isValidTwitterHandle = u.match(validTwitterHandle);
             if(u && isValidTwitterHandle && isValidTwitterHandle != null) {
                 TSB.searchUser(u);
