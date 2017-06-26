@@ -20,8 +20,12 @@ var TSB = {
 
         $('button').on('click', function () {
             var u = TSB.getUser();
-            if(u) {
+            var validTwitterHandle = /^(?:@)?([A-Za-z0-9_]){1,15}$/g;
+            var isValidTwitterHandle = u.match(validTwitterHandle);
+            if(u && isValidTwitterHandle && isValidTwitterHandle != null) {
                 TSB.searchUser(u);
+            } else {
+                TSB.isNotValidUserName();
             }
         });
     },
@@ -100,6 +104,18 @@ var TSB = {
             console.log('fail');
         }).always(function() {
             $('.results').removeClass('searching');
+        });
+    },
+    
+    isNotValidUserName: function() {
+        /*Warn User*/
+        $('header span').text('Who?').addClass('on');
+        console.log('bad username');
+
+        var pMessage = [];
+        pMessage.push('What you entered was not a twitter handle...');
+        $.each(pMessage, function( index, value ) {
+            $('.results div').append('<p>' + value + '</p>');
         });
     }
 
