@@ -1,5 +1,5 @@
 /*
-** Simpe Twitter Shadowban Checker - js
+** Simple Twitter Shadowban Checker - js
 ** 2016 @xho
 */
 
