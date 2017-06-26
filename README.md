@@ -7,6 +7,8 @@ Since the method is based on a 3rd party web page scan, it's not 100% reliable.
 It should be said also that Twitter does not mention the practice of shadowbanning users anywhere. Nonetheless some users do not appear in search results and they're interactions are not notified to other users.
 Many people think this is an obscure issue and that it should be reported.
 
+A sample working installation is available at this web address: http://shadownban-checker.xho.bedita.net.
+
 ## Recommendations
 * If you don't know what shadowban is, a web browser and a search engine are all you need.
 * If you think this app should have been done better, do it.
