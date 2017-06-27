@@ -8,26 +8,25 @@ var TSB = {
     searchBaseUrl: 'https://twitter.com/search?f=tweets&vertical=default&q=from%3A%40',
 
     init: function() {
-        $('input').keypress(function (e) {
+        $('input').keypress(function(e) {
             if (e.which == 13) {
-                var u = TSB.getUser();
-                if(u) {
-                    TSB.searchUser(u);
-                }
-                return false;    //<---- Add this line
+                TSB.testHandle();
+                return false;
             }
         });
 
-        $('button').on('click', function () {
-            var u = TSB.getUser();
-            var validTwitterHandle = /^(?:@)?([A-Za-z0-9_]){1,15}$/g;
-            var isValidTwitterHandle = u.match(validTwitterHandle);
-            if(u && isValidTwitterHandle && isValidTwitterHandle != null) {
-                TSB.searchUser(u);
-            } else {
-                TSB.isNotValidUserName();
-            }
-        });
+        $('button').click(TSB.testHandle);
+    },
+
+    testHandle: function() {
+        var u = TSB.getUser();
+        var validTwitterHandle = /^(?:@)?([A-Za-z0-9_]){1,15}$/g;
+        var isValidTwitterHandle = u.match(validTwitterHandle);
+        if (u && isValidTwitterHandle && isValidTwitterHandle != null) {
+            TSB.searchUser(u);
+        } else {
+            TSB.isNotValidUserName();
+        }
     },
 
     getUser: function() {
@@ -55,8 +54,10 @@ var TSB = {
         $.ajax({
             method: 'GET',
             url: 'parsepage.php',
-            data: { u: u },
-//            processData: false
+            data: {
+                u: u
+            },
+            //            processData: false
             // cache: false
         }).done(function(data) {
             var firstFoundTweet = $(data).find('li.stream-item:first-child');
@@ -79,7 +80,7 @@ var TSB = {
             }
 
             if (proof == 1) {
-                pMessage.push(u +' might be shadowbanned.');
+                pMessage.push(u + ' might be shadowbanned.');
             }
 
             if (proof == 2) {
@@ -89,14 +90,14 @@ var TSB = {
             if (proof > 1) {
                 pMessage.push('First make sure the user exists, then you may also visit this <a target="_blank" href=\"' + TSB.searchBaseUrl + u + '\">link to a search on Twitter</a>. If you can\'t see any tweet made by @' + u + ', this user is most likely shadowbanned.');
             } else {
-                    pMessage.push('Apparently ' + u + ' is <u>not shadowbanned</u>.');
+                pMessage.push('Apparently ' + u + ' is <u>not shadowbanned</u>.');
             }
 
-            $.each(liMessage, function( index, value ) {
+            $.each(liMessage, function(index, value) {
                 $('.results ul').append('<li>' + value + '</li>');
             });
 
-            $.each(pMessage, function( index, value ) {
+            $.each(pMessage, function(index, value) {
                 $('.results div').append('<p>' + value + '</p>');
             });
 
@@ -106,7 +107,7 @@ var TSB = {
             $('.results').removeClass('searching');
         });
     },
-    
+
     isNotValidUserName: function() {
         /*Warn User*/
         $('header span').text('Who?').addClass('on');
@@ -114,7 +115,7 @@ var TSB = {
 
         var pMessage = [];
         pMessage.push('What you entered was not a twitter handle...');
-        $.each(pMessage, function( index, value ) {
+        $.each(pMessage, function(index, value) {
             $('.results div').append('<p>' + value + '</p>');
         });
     }
