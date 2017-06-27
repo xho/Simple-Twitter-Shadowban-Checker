@@ -22,7 +22,7 @@
    \ \____/ \ \_\ \_\ \____\ \____\\ \_\ \_\ \____\\ \_\                           
     \/___/   \/_/\/_/\/____/\/____/ \/_/\/_/\/____/ \/_/                           
 
-   Simpe Twitter Shadowban Checker
+   Simple Twitter Shadowban Checker
    ========================================================================== */
 
 This application is under MIT license with addendum (see below)
