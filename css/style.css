@@ -17,7 +17,7 @@ h1, h2, h3, p { margin: 0; padding: 0; }
 
 .container, header, footer {
     box-sizing: border-box;
-    max-width: 420px;
+    max-width: 28em;
     margin: 1em auto;
 }
 header {
@@ -30,11 +30,16 @@ header {
 footer {
     font-size: .875em;
     color: #aaa;
-    text-align: center
 }
 footer a {
     color: #1da1f2;;
     text-decoration: none;
+}
+footer div:first-child {
+    text-align: center;
+}
+footer p {
+    margin-bottom: 0.25em;
 }
 
 .container {
@@ -54,7 +59,6 @@ section.input {
 section.results {
     display: none;
     background: none;
-    min-height: 8em;
     margin-top: 2em;
     padding-top: 2em;
     border-top: 1px solid #8fc4de;
@@ -62,7 +66,8 @@ section.results {
 }
 
 section.results.searching {
-    background: transparent url('../gears.svg') center center no-repeat;
+    min-height: 8em;
+    background: transparent url('../gears.svg') bottom center no-repeat;
 }
 
 header span.on {
@@ -89,19 +94,30 @@ button:active {
 }
 
 .results ul {
-    padding: 0;
     margin: 0;
+    padding: 0 1em;
 }
 .results li { margin-bottom: 0.5em; }
+.results li:last-child { margin-bottom: 2em; }
 
-.results p {
-    margin-top: .75em;
+.results:not(.searching) div {
+    padding: .5em;
+    background-color: #3cb4fd;
+    text-align: center;
+    border-radius: .25em;
 }
+
+.results.accent:not(.searching) div {
+    background-color: #c53dc5;
+}
+
 
 .results a {
     font-weight: bold;
     color: #fff;
 }
+
+
 
 @media (max-width:440px) {
     .container, header, footer {
@@ -111,11 +127,5 @@ button:active {
         box-sizing: border-box;
         overflow-x: hidden;
         width: 92%;
-    }
-    .results ul {
-        list-style: none;
-    }
-    .results li:first-letter {
-        text-transform: uppercase;
     }
 }

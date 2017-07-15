@@ -36,7 +36,7 @@ var TSB = {
         var u = $('input').val().trim();
         if (!u) {
             $('header span').text('@user').removeClass('on');
-            $('.results').slideUp().removeClass('searching');
+            $('.results').slideUp().removeClass('searching accent');
             return false;
         }
 
@@ -49,7 +49,10 @@ var TSB = {
 
     searchUser: function(u) {
         $('header span').text('@' + u).addClass('on');
-        $('.results').slideDown().addClass('searching');
+        $('.results')
+            .slideDown()
+            .removeClass('accent')
+            .addClass('searching');
 
         $.ajax({
             method: 'GET',
@@ -84,13 +87,14 @@ var TSB = {
             }
 
             if (proof == 2) {
+                $('.results').addClass('accent');
                 pMessage.push('Apparently @' + u + ' <u>is shadowbanned</u>.');
             }
 
             if (proof > 1) {
                 pMessage.push('First make sure the user exists, then you may also visit this <a target="_blank" href=\"' + TSB.searchBaseUrl + u + '\">link to a search on Twitter</a>. If you can\'t see any tweet made by @' + u + ', this user is most likely shadowbanned.');
             } else {
-                pMessage.push('Apparently ' + u + ' is <u>not shadowbanned</u>.');
+                pMessage.push('Apparently @' + u + ' is <u>not shadowbanned</u>');
             }
 
             $.each(liMessage, function(index, value) {
@@ -114,7 +118,7 @@ var TSB = {
         console.log('bad username');
 
         var pMessage = [];
-        pMessage.push('What you entered was not a twitter handle...');
+        pMessage.push('What you entered is not a twitter handle...');
         $.each(pMessage, function(index, value) {
             $('.results div').append('<p>' + value + '</p>');
         });
