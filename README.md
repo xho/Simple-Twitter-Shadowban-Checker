@@ -14,7 +14,7 @@ A sample working installation is available at this web address: http://shadownba
 * If you think this app should have been done better, do it.
 
 ## How does it work
-Apparently shadowbanning is not active in Twitter's public API. For this reason this app crawls and directly scans the search page on Twitter's web site, like a person, to discover if a user's tweets are displayed.  To avoid problems with CORS, a very simple php proxy is used.
+Apparently shadowbanning is not active in Twitter's public API. For this reason this app crawls and directly scans the search page on Twitter's web site, like a person, to discover if user's tweets are displayed.  To avoid problems with CORS a very simple php proxy is used.
 
 ## License
 This application is under MIT license with an addendum (see below)
@@ -29,5 +29,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 __
 
 Addendum
-
-Except as contained in this notice, the whole appllication and the name of Christiano Presutti (@xho) shall not be used in advertising or otherwise to promote the sale, use of, or other dealings in this Software, without prior written authorization from the author.
+Except as contained in this notice, the whole application and the name of Christiano Presutti (@xho) shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from the author.
