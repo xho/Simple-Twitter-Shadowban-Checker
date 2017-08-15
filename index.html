@@ -1,19 +1,12 @@
 <!DOCTYPE html>
-<!--
- ______                __    __                                                    
-/\__  _\            __/\ \__/\ \__                                                 
-\/_/\ \/ __  __  __/\_\ \ ,_\ \ ,_\    __   _ __                                   
-   \ \ \/\ \/\ \/\ \/\ \ \ \/\ \ \/  /'__`\/\`'__\                                 
-    \ \ \ \ \_/ \_/ \ \ \ \ \_\ \ \_/\  __/\ \ \/                                  
-     \ \_\ \___x___/'\ \_\ \__\\ \__\ \____\\ \_\                                  
-      \/_/\/__//__/   \/_/\/__/ \/__/\/____/ \/_/                                  
+<!--                                                                            
  ____    __                   __                       __                          
 /\  _`\ /\ \                 /\ \                     /\ \                         
-\ \,\L\_\ \ \___      __     \_\ \    ___   __  __  __\ \ \____     __      ___    
- \/_\__ \\ \  _ `\  /'__`\   /'_` \  / __`\/\ \/\ \/\ \\ \ '__`\  /'__`\  /' _ `\  
-   /\ \L\ \ \ \ \ \/\ \L\.\_/\ \L\ \/\ \L\ \ \ \_/ \_/ \\ \ \L\ \/\ \L\.\_/\ \/\ \ 
-   \ `\____\ \_\ \_\ \__/.\_\ \___,_\ \____/\ \___x___/' \ \_,__/\ \__/.\_\ \_\ \_\
-    \/_____/\/_/\/_/\/__/\/_/\/__,_ /\/___/  \/__//__/    \/___/  \/__/\/_/\/_/\/_/
+\ \,\L\_\ \ \___      __     \_\ \    ___   __  __  __\ \ \____     __      ___      ___    
+ \/_\__ \\ \  _ `\  /'__`\   /'_` \  / __`\/\ \/\ \/\ \\ \ '__`\  /'__`\   /'_ `\  /'_ `\  
+   /\ \L\ \ \ \ \ \/\ \L\.\_/\ \L\ \/\ \L\ \ \ \_/ \_/ \\ \ \L\ \/\ \L\.\_/\ \/\ \/\ \/\ \ 
+   \ `\____\ \_\ \_\ \__/.\_\ \___,_\ \____/\ \___x___/' \ \_,__/\ \__/.\_\ \_\ \_\ \_\ \_\
+    \/_____/\/_/\/_/\/__/\/_/\/__,_ /\/___/  \/__//__/    \/___/  \/__/\/_/\/_/\/_/\/_/\/_/
  ____     __                     __                                                
 /\  _`\  /\ \                   /\ \                                               
 \ \ \/\_\\ \ \___      __    ___\ \ \/'\      __   _ __                            
@@ -22,51 +15,117 @@
    \ \____/ \ \_\ \_\ \____\ \____\\ \_\ \_\ \____\\ \_\                           
     \/___/   \/_/\/_/\/____/\/____/ \/_/\/_/\/____/ \/_/                           
 
-Simpe Twitter Shadowban Checker
+Simpe Shadowban Checker
 This is a free software web app under MIT license with an addendum:
 see /license.txt
-2016 @xho
+based on 2016 @xho's Twitter Shadowban Checker rewritten using a front end framework
+2017 @andersama
 -->
-<html>
+<html >
 <head>
-    <title>Test Shadowban</title>
+    <title>Shadowbann</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css?1">
+    <!--<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="mdl/material.docs.min.css">
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css?1">-->
 </head>
 <body>
-
-<header>
-    <h1>Is <span>@user</span><br> shadowbanned on Twitter?</h1>
-</header>
-
-<div class="container">
-    <section class="input">
-        <input type="text" placeholder="@username"
-            autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-        <button>Check</button>
-    </section>
-    <section class="results">
-        <ul>
-        </ul>
-        <div>
-        </div>
-    </section>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" ng-app="app.shadowbann" ng-controller="ShadowbannController">
+	<header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+		<div class="mdl-layout__header-row">
+			<div class="material-icons mdl-badge mdl-badge--overlap" data-badge="{{numberOfResults()}}">account_box</div>
+			<span class="mdl-layout-title">Is <span id="header_user" ng-bind="validusername">?</span> Shadowbann[ed]? <!--<span ng-show="moduleIsOk()">on <span id="site" ng-bind="currentModule().siteName"></span>?</span>--></span>
+			<div class="mdl-layout-spacer">
+				<!--<div class="mdl-spinner mdl-js-spinner is-active"></div>-->
+			</div>
+		  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search" submit-button-listener query="query()">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder mdl-textfield--floating-labels">
+              <input class="mdl-textfield__input" type="text" id="search" ng-model="username" ng-change="validate()" submit-form-listener query="query()">
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+		</div>
+	</header>
+	
+	<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 mdl-shadow--4dp">
+		<header class="demo-drawer-header">
+		</header>
+		<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800" ng-init="$parent.selected=0">
+			<li class="mdl-list__item" ng-repeat="module in modules">
+				<span class="mdl-list__item-primary-content">
+					<!--<i class="material-icons mdl-list__item-avatar">{{module.siteName}}</i>-->
+					{{module.siteName | uppercase}}
+				</span>
+				<span class="mdl-list__item-secondary-action">
+					<label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-{{$index}}">
+						<input type="radio" class="mdl-radio__button" name="site" id="list-option-{{$index}}" value="{{$index}}" ng-model="$parent.selected"></input>
+					</label>
+				</span>
+			</li>
+		</nav>
+		
+	</div>
+	
+	<main class="docs-layout-content mdl-layout__content mdl-color--grey-100">
+		<div class="mdl-grid">
+			<!-- RESULTS SHOW HERE -->
+			<div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop" ng-repeat="result in results track by $index">
+              <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+                <h2 class="mdl-card__title-text">{{result.title}}</h2>
+              </div>
+              
+			  <div class="mdl-card__supporting-text mdl-color-text--grey-600" ng-show="isArray(result.description)">
+				<span ng-repeat="descriptionLine in result.description track by $index">{{descriptionLine}}<br></span>
+              </div>
+              <div class="mdl-card__actions mdl-card--border" ng-show="isArray(result.details)">
+				<span ng-repeat="detailLine in result.details track by $index">{{detailLine}}<br></span>
+              </div>
+			  
+			  <div class="mdl-card__supporting-text mdl-color-text--grey-600" ng-show="!isArray(result.description)">
+				<span>{{result.description}}<br></span>
+              </div>
+              <div class="mdl-card__actions mdl-card--border" ng-show="!isArray(result.details)">
+				<span>{{result.details}}<br></span>
+              </div>
+            </div>
+			<!--The Public Note-->
+			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+                <h2 class="mdl-card__title-text">Hello! Few Things Here:</h2>
+              </div>
+              
+			  <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+				<span>You can find the source code for this site on <a href="https://github.com/Andersama/Simple-Shadowban-Checker" target="_blank">Github</a>, check it out.<br></span>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+				<span>Note 1: this app crawls and scans websites do not abuse.<br></span>
+				<span>Note 2: no cookies used for any purpose, so fuck off the privacy disclaimer and all that stuff.<br></span>
+              </div>
+            </div>
+		</div>
+	</main>
+	<footer class="mdl-mini-footer mdl-color--grey-100 mdl-color-text--grey-600 is-casting-shadow">
+		<div class="mdl-mini-footer__right-section">
+			<div class="mdl-logo">Shadowbann</div>
+			<ul class="mdl-mini-footer__link-list">
+				<li><a href="https://github.com/Andersama/Simple-Shadowban-Checker" target="_blank">Github</a></li>
+				<li><a href="https://github.com/Andersama/Simple-Shadowban-Checker#privacy" target="_blank">Privacy & Terms</a></li>
+			</ul>
+		</div>
+	</footer>
 </div>
-
-<footer>
-    No copyright 2016 <a href="https://twitter.com/xho">@xho</a> - v. 1.0 beta
-    <br>
-    Source code is <a href="https://github.com/xho/Simple-Twitter-Shadowban-Checker" target="_blank">public on Github</a>
-    <hr>
-    N.b. 1: this app crawls and scans the search page on Twitter's web site, do not abuse
-    <br>
-    N.b. 2: no cookies for any purpose, so fuck off the privacy disclaimer and all that stuff
-</footer>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="mdl/material.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="js/shadowbann.modules.js"></script>
+<script src="js/shadowbann.angular.js"></script>
 </body>
 </html>
