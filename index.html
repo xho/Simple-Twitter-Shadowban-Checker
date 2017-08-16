@@ -86,12 +86,12 @@ based on 2016 @xho's Twitter Shadowban Checker rewritten using a front end frame
 			  <div class="mdl-card__supporting-text mdl-color-text--grey-600" ng-show="isArray(result.description)">
 				<span ng-repeat="descriptionLine in result.description track by $index">{{descriptionLine}}<br></span>
               </div>
-              <div class="mdl-card__actions mdl-card--border" ng-show="isArray(result.details)">
-				<span ng-repeat="detailLine in result.details track by $index">{{detailLine}}<br></span>
-              </div>
-			  
 			  <div class="mdl-card__supporting-text mdl-color-text--grey-600" ng-show="!isArray(result.description)">
 				<span>{{result.description}}<br></span>
+              </div>
+			  
+              <div class="mdl-card__actions mdl-card--border" ng-show="isArray(result.details)">
+				<span ng-repeat="detailLine in result.details track by $index">{{detailLine}}<br></span>
               </div>
               <div class="mdl-card__actions mdl-card--border" ng-show="!isArray(result.details)">
 				<span>{{result.details}}<br></span>
@@ -122,7 +122,11 @@ based on 2016 @xho's Twitter Shadowban Checker rewritten using a front end frame
 			</ul>
 		</div>
 	</footer>
+	
+	<!--<a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">Read More<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 231.938px; height: 231.938px; transform: translate(-50%, -50%) translate(57px, 8px);"></span></span></a>-->
 </div>
+<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+<!--<script type="text/javascript" src="js/script.js"></script>-->
 <script type="text/javascript" src="mdl/material.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="js/shadowbann.modules.js"></script>
