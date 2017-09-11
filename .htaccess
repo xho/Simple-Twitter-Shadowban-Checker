@@ -1,7 +1,13 @@
 RedirectMatch 404 /\..*$
 
+RewriteEngine On
+SetEnvIf HOST "^shadowbann-a-ghost-site.a3c1.starter-us-west-1.openshiftapps.com" is_from_server
+
 <FilesMatch "^(gethtml|parsepage)\.php$">
 	#Require local
-	Require host openshiftapps.com
+	#Require host openshiftapps.com
 	#Require forward-dns shadowbann-a-ghost-site.a3c1.starter-us-west-1.openshiftapps.com
+	<RequireAny>
+		Require env is_from_server
+	</RequireAny>
 </FilesMatch>
