@@ -1,0 +1,7 @@
+RedirectMatch 404 /\..*$
+
+<FilesMatch "^(gethtml|parsepage)\.php$">
+	#Require local
+	Require host openshiftapps.com
+	#Require forward-dns shadowbann-a-ghost-site.a3c1.starter-us-west-1.openshiftapps.com
+</FilesMatch>
