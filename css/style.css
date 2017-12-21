@@ -26,6 +26,7 @@ header {
     line-height: 2.5rem;
     text-align: center;
     color: #1da1f2;
+    margin-top: 3em;
 }
 footer {
     font-size: .875em;
@@ -40,81 +41,6 @@ footer div:first-child {
 }
 footer p {
     margin-bottom: 0.25em;
-}
-
-.container {
-    padding: 2em;
-    color: #fff;
-    background-color: #1da1f2;
-    border-radius: 1em;
-    font-weight: 100;
-}
-
-section.input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-section.results {
-    display: none;
-    background: none;
-    margin-top: 2em;
-    padding-top: 2em;
-    border-top: 1px solid #8fc4de;
-    background: none;
-}
-
-section.results.searching {
-    min-height: 8em;
-    background: transparent url('../gears.svg') bottom center no-repeat;
-}
-
-header span.on {
-    color: #c53dc5;
-}
-
-
-input[type=text], button {
-    border: 0;
-    padding: .4em .5em;
-    flex-grow: 1;
-    font-size: 1em;
-    background-color: #fff;
-    border-radius: .25em;
-}
-input[type=text] {
-    margin-right: 1em;
-    min-width: 5em;
-}
-
-button:active {
-    background-color: #333;
-    color: #fff;
-}
-
-.results ul {
-    margin: 0;
-    padding: 0 1em;
-}
-.results li { margin-bottom: 0.5em; }
-.results li:last-child { margin-bottom: 2em; }
-
-.results:not(.searching) div {
-    padding: .5em;
-    background-color: #3cb4fd;
-    text-align: center;
-    border-radius: .25em;
-}
-
-.results.accent:not(.searching) div {
-    background-color: #c53dc5;
-}
-
-
-.results a {
-    font-weight: bold;
-    color: #fff;
 }
 
 
