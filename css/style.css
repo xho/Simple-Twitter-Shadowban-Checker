@@ -14,30 +14,30 @@ body {
     font-size: 16px;
 }
 h1, h2, h3, p { margin: 0; padding: 0; }
+a {
+    color: #1da1f2;;
+    text-decoration: none;
+}
 
 .container, header, footer {
     box-sizing: border-box;
     max-width: 28em;
     margin: 1em auto;
+    text-align: center;
 }
 header {
     font-family: 'Lobster', cursive;
     font-size: 1.125em;
     line-height: 2.5rem;
-    text-align: center;
     color: #1da1f2;
     margin-top: 3em;
+}
+.container {
+    color: #aaa;
 }
 footer {
     font-size: .875em;
     color: #aaa;
-}
-footer a {
-    color: #1da1f2;;
-    text-decoration: none;
-}
-footer div:first-child {
-    text-align: center;
 }
 footer p {
     margin-bottom: 0.25em;
