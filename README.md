@@ -1,6 +1,12 @@
 # Simple Twitter Shadowban Checker
 v. 1.0 beta
 
+```
+THIS CODE IS OUTDATED
+and apparently the test fails.
+I have no time to fix it, if any developer of good will has time please send me a PR.
+```
+
 This is a simple and quick webapp that crawls Twitter's search page to discover if a particular user has been shadowbanned.
 Since the method is based on a 3rd party web page scan, it's not 100% reliable.
 
