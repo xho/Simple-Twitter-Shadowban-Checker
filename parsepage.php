@@ -5,20 +5,20 @@
 ** 2016 @xho
 */
 
-if (empty($_GET['u'])) {
+if (empty($_GET['q'])) {
     header('HTTP/1.1 500 Internal Server Booboo');
     header('Content-Type: application/json; charset=UTF-8');
-    die(json_encode(array('error' => 'Missing user')));
+    die(json_encode(array('error' => 'Missing query')));
 }
 
 // defaults ?qf to 'on', which is the
 // current (2018-05-20) behaviour of the twitter website
 $params = array(
-  'u' => filter_var($GET['u'], FILTER_SANITIZE_STRING),
+  'q' => filter_var($GET['q'], FILTER_SANITIZE_STRING),
   'qf' => empty($_GET['noqf']) ? '' : '&qf=off'
 );
 
-$url = 'https://twitter.com/search?f=tweets&src=typd&vertical=default&q=from%3A%40' . $params['u'] . $params['qf'];
+$url = 'https://twitter.com/search?f=tweets&src=typd&vertical=default&q=' . $params['q'] . $params['qf'];
 
 $content = file_get_contents($url);
 echo $content;
