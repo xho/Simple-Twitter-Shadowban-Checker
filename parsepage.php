@@ -18,7 +18,7 @@ $params = array(
   'qf' => empty($_GET['noqf']) ? '' : '&qf=off'
 );
 
-$url = 'https://twitter.com/search?f=tweets&src=typd&vertical=default&q=' . $params['q'] . $params['qf'];
+$url = 'https://twitter.com/search?f=tweets&src=typd&vertical=default&q=' . urlencode($params['q']) . $params['qf'];
 
 $content = file_get_contents($url);
 echo $content;
