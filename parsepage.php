@@ -19,8 +19,16 @@ $params = array(
 );
 
 $url = 'https://twitter.com/search?f=tweets&src=typd&vertical=default&q=' . urlencode($params['q']) . $params['qf'];
+$opts = array(
+  "http" => array(
+    "method" => "GET",
+    "header" => "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
+  )
+);
 
-$content = file_get_contents($url);
+$context = stream_context_create($opts);
+
+$content = file_get_contents($url, false, $context);
 echo $content;
 
 ?>
