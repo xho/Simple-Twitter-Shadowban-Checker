@@ -14,7 +14,7 @@ if (empty($_GET['q'])) {
 // defaults ?qf to 'on', which is the
 // current (2018-05-20) behaviour of the twitter website
 $params = array(
-  'q' => filter_var($GET['q'], FILTER_SANITIZE_STRING),
+  'q' => filter_var($_GET['q'], FILTER_SANITIZE_STRING),
   'qf' => empty($_GET['noqf']) ? '' : '&qf=off'
 );
 
