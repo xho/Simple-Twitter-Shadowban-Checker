@@ -22,6 +22,20 @@ A sample working installation is available at this web address: http://shadownba
 ## How does it work
 Informations about shadowbanning are not exposed on Twitter's public API. For this reason this app crawls and directly scans the search page on Twitter's web site, like a person, to discover if user's tweets are displayed.  To avoid problems with CORS a very simple php proxy is used.
 
+## Development
+Since we are using a backend php script, the simplest way to get started
+is to use the PHP CLI development server.
+
+```bash
+apt-get install php7.2-cli
+cd ~/{Simple-Twitter-Shadowban-Checker_ROOT}
+php -S localhost:8080
+```
+
+This will spawn a leightweight, PHP enabled http server with the current $PWD as document_root.
+
+Visit `localhost:8080` and start testing! \o/
+
 ## License
 This application is under MIT license with an addendum (see below)
 
