@@ -4,7 +4,7 @@ v. 1.0 beta
 ```
 THIS CODE IS OUTDATED
 and apparently the test fails.
-I have no time to fix it, if any developer of good will has time please send me a PR.
+I have no time to fix it, and you may look at source to implement your Checker.
 ```
 
 This is a simple and quick webapp that crawls Twitter's search page to discover if a particular user has been shadowbanned.
